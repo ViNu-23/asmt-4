@@ -1,6 +1,5 @@
 ### Event Website Project Assignment
 ![FireShot Capture 090 - Vite + React - localhost](https://github.com/ViNu-23/asmt-4/assets/59360964/8b7c2dd4-a837-4123-b340-7855c2a4b4a3)
-![FireShot Capture 091 - Vite + React - localhost](https://github.com/ViNu-23/asmt-4/assets/59360964/a74a93b3-381d-429b-99fa-10272733b87e)
 
 
 **Event Website Project README**
@@ -30,16 +29,6 @@ This project utilizes the following technologies:
 6. **useEffect**: A React hook for handling side effects in functional components.
 
 
-
-### Getting Started
-
-For more detailed documentation on how to use and customize this project, please refer to the comments in the source code files.
-
-Happy event browsing! 🎉
-
----
-
-Feel free to copy and paste this text into your README file.
 
 **Vite + ReactJS Project README**
 
@@ -113,12 +102,5 @@ yarn build
 
 This will generate an optimized production build in the dist directory.
 
-### Additional Information
 
-For more information on how to customize or extend this project, refer to the official Vite and ReactJS documentation.
 
-Happy coding! 🚀
-
----
-
-Feel free to copy and paste this text into your README file.
