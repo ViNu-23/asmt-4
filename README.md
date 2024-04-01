@@ -1,6 +1,45 @@
-Sure, here's the README content with each code block, heading, and subheading in text format:
+### Event Website Project Assignment
+![FireShot Capture 090 - Vite + React - localhost](https://github.com/ViNu-23/asmt-4/assets/59360964/8b7c2dd4-a837-4123-b340-7855c2a4b4a3)
+![FireShot Capture 091 - Vite + React - localhost](https://github.com/ViNu-23/asmt-4/assets/59360964/a74a93b3-381d-429b-99fa-10272733b87e)
+
+
+**Event Website Project README**
+
+Welcome to our event website project! This project aims to create a website that showcases upcoming and recommended events, providing users with location details, dates, distances, and temperature information. Below, you'll find a brief overview of the project and the technologies used to develop it.
+
+### Project Overview
+
+The goal of this project is to build a website that displays upcoming events along with their relevant details such as location, date, distance, and temperature. Users will be able to browse through events, view their details, and decide which ones to attend based on their preferences and the provided information.
+
+### Features
+
+1. Display upcoming events with location details.
+2. Show event dates and distances from the user's location.
+3. Provide temperature information for each event location.
+4. Allow users to browse events and make informed decisions.
+
+### Technologies Used
+
+This project utilizes the following technologies:
+
+1. **React**: A JavaScript library for building user interfaces.
+2. **Axios**: A promise-based HTTP client for making requests to external APIs.
+3. **Conditional Rendering**: Using conditional statements to render different components based on certain conditions.
+4. **React Responsive**: A library for building responsive designs in React applications.
+5. **useState**: A React hook for managing state within functional components.
+6. **useEffect**: A React hook for handling side effects in functional components.
+
+
+
+### Getting Started
+
+For more detailed documentation on how to use and customize this project, please refer to the comments in the source code files.
+
+Happy event browsing! 🎉
 
 ---
+
+Feel free to copy and paste this text into your README file.
 
 **Vite + ReactJS Project README**
 
