@@ -1,6 +1,7 @@
 import  { useState, useEffect } from "react";
 import axios from "axios";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 
 export default function Recommended() {
   const [events, setEvents] = useState([]);
@@ -101,37 +102,37 @@ export default function Recommended() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: 0,
+                  bottom: '10px',
                   left: 0,
                   width: "100%",
                   color: "white",
                   zIndex: 3,
+                  fontSize:'12px'
                 }}
               >
                 <div
                   style={{
                     padding: "24px",
                     display: "flex",
-                    fontSize: "12px",
+                    fontSize: "10px",
                     justifyContent: "space-between",
                   }}
                 >
-                  {" "}
                   <div>
                     <span>
                       {event.eventName.split(" ").slice(0, 2).join(" ")}
                     </span>
-                    <p>{event.cityName}</p>
+                    <p><FaLocationDot style={{marginRight:'4px'}}/>{event.cityName}</p>
                   </div>
                   <div>
-                    <p>{new Date(event.date).toLocaleDateString()}</p>
-                    <p>{event.weather}</p>
-                    <p>
+                    <p >{new Date(event.date).toLocaleDateString()}</p>
+                    <div style={{display:'flex'}}><p style={{paddingRight:'4px'}}>{event.weather}</p> |
+                    <p style={{paddingLeft:'4px'}}>
                       {typeof event.distanceKm === "string" &&
                       event.distanceKm.length > 2
                         ? `${event.distanceKm.substring(0, 2)} km`
                         : event.distanceKm}
-                    </p>
+                    </p></div>
                   </div>
                 </div>
               </div>
