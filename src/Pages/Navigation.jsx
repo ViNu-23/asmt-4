@@ -1,13 +1,16 @@
-// import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 import { FaListUl, FaLocationDot, FaChevronRight } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
 import "../Globalstyle.css";
 export default function Navigation() {
-  // const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   return (
-    <> <div style={{
+    <>
+    
+     <div style={{
         position: "fixed",
-        padding:'20px 0px',
+        padding:!isMobile?'20px 0px':'15px 10px',
         zIndex: "200",
         background: "#fff",
         top: "0",
@@ -18,7 +21,7 @@ export default function Navigation() {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          padding: "0px 30px",
+          padding: !isMobile? "0px 30px":'',
         }}
       >
         <div
@@ -57,7 +60,9 @@ export default function Navigation() {
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", color: "#fff" }}>
+       {
+        !isMobile  &&(
+          <div style={{ display: "flex", alignItems: "center", color: "#fff" }}>
           <div
             style={{
               display: "flex",
@@ -79,7 +84,11 @@ export default function Navigation() {
             />
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        )
+       } 
+       {
+        !isMobile && (
+          <div style={{ display: "flex", alignItems: "center" }}>
           <button
             type="button"
             style={{ display: "flex", alignItems: "center" }}
@@ -97,9 +106,15 @@ export default function Navigation() {
             Sign In
           </button>
         </div>
+        )
+
+       }
+        
+
+        
       </div>
 
-      <div style={{display:'flex',color:'#000',marginTop:'10px',justifyContent:'center',}}>
+      <div style={{display:'flex',color:'#000',marginTop:isMobile?'0px':'10px',justifyContent:'center',alignItems:'center'}}>
         <span className="event_type">Live show</span>
         <span className="event_type">Stream</span>
         <span className="event_type">Movies</span>
