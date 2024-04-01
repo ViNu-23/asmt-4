@@ -8,7 +8,7 @@ export default function Navigation() {
     <> <div style={{
         position: "fixed",
         padding:'20px 0px',
-        zIndex: "2",
+        zIndex: "200",
         background: "#fff",
         top: "0",
         left: "0",

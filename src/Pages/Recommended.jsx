@@ -96,6 +96,7 @@ export default function Recommended() {
                   objectFit: "cover",
                   borderRadius: "8px",
                 }}
+                loading="lazy"
               />
               <div
                 style={{
