@@ -2,10 +2,6 @@
 ![FireShot Capture 090 - Vite + React - localhost](https://github.com/ViNu-23/asmt-4/assets/59360964/8b7c2dd4-a837-4123-b340-7855c2a4b4a3)
 
 
-**Event Website Project README**
-
-Welcome to our event website project! This project aims to create a website that showcases upcoming and recommended events, providing users with location details, dates, distances, and temperature information. Below, you'll find a brief overview of the project and the technologies used to develop it.
-
 ### Project Overview
 
 The goal of this project is to build a website that displays upcoming events along with their relevant details such as location, date, distance, and temperature. Users will be able to browse through events, view their details, and decide which ones to attend based on their preferences and the provided information.
