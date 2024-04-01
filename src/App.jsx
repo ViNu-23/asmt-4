@@ -1,5 +1,9 @@
+import Home from "./Pages/Home";
+
 export default function App() {
   return (
-    <div>App1</div>
+    <>
+    <Home/>
+    </>
   )
 }
