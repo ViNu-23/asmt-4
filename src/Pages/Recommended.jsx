@@ -1,9 +1,11 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
+import { useMediaQuery } from "react-responsive";
 
 export default function Recommended() {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
@@ -31,7 +33,6 @@ export default function Recommended() {
     fetchEvents();
   }, []);
 
-  // Function to convert Google Drive sharing link to direct download link
   const getDirectDownloadLink = (driveLink) => {
     const fileId = driveLink.match(/[-\w]{25,}/);
     if (fileId) {
@@ -41,7 +42,6 @@ export default function Recommended() {
       return driveLink;
     }
   };
-
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -49,7 +49,7 @@ export default function Recommended() {
   return (
     <div
       style={{
-        paddingLeft: "70px",
+        paddingLeft: "5vw",
         marginTop: "70px",
         zIndex: "10",
         position: "relative",
@@ -61,14 +61,33 @@ export default function Recommended() {
           display: "flex",
           alignItems: "center",
           marginBottom: "20px",
+          justifyContent: "space-between",
         }}
       >
-        <span
-          style={{ fontSize: "18px", fontWeight: "500", paddingRight: "14px" }}
-        >
-          Recommended Shows{" "}
-        </span>
-        <FaArrowRightLong size={20} />
+        <div style={{ display: "flex", alignItems: "center",cursor:'pointer' }}>
+          <span
+            style={{
+              fontWeight: "500",
+              marginRight: "8px",
+              fontSize: isMobile ? "16px" : "18px",
+            }}
+          >
+            Recommended shows{" "}
+          </span>{" "}
+          <FaArrowRightLong />
+        </div>
+        <div style={{ marginRight: "30px" }}>
+          {" "}
+          <span
+            style={{
+              textDecoration: "underline",
+              fontSize: isMobile ? "10px" : "12px",
+              cursor:'pointer'
+            }}
+          >
+            See all
+          </span>
+        </div>
       </div>
       <div
         style={{
@@ -84,9 +103,11 @@ export default function Recommended() {
               key={index}
               style={{
                 margin: "10px",
-                minWidth: "240px",
+                minWidth: "230px",
                 position: "relative",
+                cursor:'pointer',
               }}
+              className="hover__popup"
             >
               <img
                 src={event.imgUrl}
@@ -102,12 +123,12 @@ export default function Recommended() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: '10px',
+                  bottom: "10px",
                   left: 0,
                   width: "100%",
                   color: "white",
                   zIndex: 3,
-                  fontSize:'12px'
+                  fontSize: "12px",
                 }}
               >
                 <div
@@ -122,17 +143,22 @@ export default function Recommended() {
                     <span>
                       {event.eventName.split(" ").slice(0, 2).join(" ")}
                     </span>
-                    <p><FaLocationDot style={{marginRight:'4px'}}/>{event.cityName}</p>
+                    <p>
+                      <FaLocationDot style={{ marginRight: "4px" }} />
+                      {event.cityName}
+                    </p>
                   </div>
                   <div>
-                    <p >{new Date(event.date).toLocaleDateString()}</p>
-                    <div style={{display:'flex'}}><p style={{paddingRight:'4px'}}>{event.weather}</p> |
-                    <p style={{paddingLeft:'4px'}}>
-                      {typeof event.distanceKm === "string" &&
-                      event.distanceKm.length > 2
-                        ? `${event.distanceKm.substring(0, 2)} km`
-                        : event.distanceKm}
-                    </p></div>
+                    <p>{new Date(event.date).toLocaleDateString()}</p>
+                    <div style={{ display: "flex" }}>
+                      <p style={{ paddingRight: "4px" }}>{event.weather}</p> |
+                      <p style={{ paddingLeft: "4px" }}>
+                        {typeof event.distanceKm === "string" &&
+                        event.distanceKm.length > 2
+                          ? `${event.distanceKm.substring(0, 2)} km`
+                          : event.distanceKm}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

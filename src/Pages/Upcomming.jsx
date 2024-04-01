@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaArrowRightLong, FaLocationDot } from "react-icons/fa6";
+import { useMediaQuery } from "react-responsive";
+
 export default function Upcomming() {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
@@ -30,7 +33,6 @@ export default function Upcomming() {
     fetchEvents();
   }, []);
 
-  // Function to convert Google Drive sharing link to direct download link
   const getDirectDownloadLink = (driveLink) => {
     const fileId = driveLink.match(/[-\w]{25,}/);
     if (fileId) {
@@ -44,28 +46,44 @@ export default function Upcomming() {
   if (error) {
     return <div>Error: {error}</div>;
   }
-
   return (
     <div
       style={{
-        padding: "70px",
+        padding: "15px",
         zIndex: "10",
       }}
     >
       <div
         style={{
-          color: "#fff",
           display: "flex",
           alignItems: "center",
           marginBottom: "20px",
+          justifyContent: "space-between",
         }}
       >
-        <span
-          style={{ fontSize: "18px", fontWeight: "500", paddingRight: "14px",color:'#1E2022' }}
-        >
-          Upcoming events{" "}
-        </span>
-        <FaArrowRightLong size={20} style={{color:'#1E2022'}}/>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <span
+            style={{
+              fontWeight: "500",
+              marginRight: "8px",
+              fontSize: isMobile ? "16px" : "18px",
+            }}
+          >
+            Upcoming events{" "}
+          </span>{" "}
+          <FaArrowRightLong />
+        </div>
+        <div style={{ marginRight: "30px" }}>
+          {" "}
+          <span
+            style={{
+              textDecoration: "underline",
+              fontSize: isMobile ? "10px" : "12px",
+            }}
+          >
+            See all
+          </span>
+        </div>
       </div>
       <div
         style={{
@@ -78,11 +96,12 @@ export default function Upcomming() {
           <div
             key={index}
             style={{
-              width: "30%",
+              width: isMobile ? "100%" : "30%",
               margin: "10px",
               borderRadius: "8px",
               border: "1px solid #B0BABF",
             }}
+            className="hover__popup"
           >
             <div style={{ position: "relative" }}>
               <img
@@ -99,7 +118,7 @@ export default function Upcomming() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: "20px", 
+                  bottom: "20px",
                   left: "14px",
                   right: "14px",
                   zIndex: "1",
@@ -121,23 +140,30 @@ export default function Upcomming() {
                 justifyContent: "space-between",
               }}
             >
-              <div style={{ fontSize: "16px", fontWeight: "600" ,marginBottom:'6px',color:'#1E2022'}}>
+              <div
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  marginBottom: "6px",
+                  color: "#1E2022",
+                }}
+              >
                 {event.eventName.split(" ").slice(0, 2).join(" ")}
               </div>
-              <div style={{display:'flex',justifyContent:'space-between'}}>
-              <div style={{ color: "#989090" }}>
-                    <FaLocationDot style={{ paddingRight: "4" }} />
-                    {event.cityName}
-                  </div>
-              <div style={{ color: "#989090",display:'flex' }}>
-                <span style={{margin:'0px 4px'}}>{event.weather}</span> | 
-                <span style={{ margin:'0px 4px'  }}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div style={{ color: "#989090" }}>
+                  <FaLocationDot style={{ paddingRight: "4" }} />
+                  {event.cityName}
+                </div>
+                <div style={{ color: "#989090", display: "flex" }}>
+                  <span style={{ margin: "0px 4px" }}>{event.weather}</span> |
+                  <span style={{ margin: "0px 4px" }}>
                     {typeof event.distanceKm === "string" &&
                     event.distanceKm.length > 2
                       ? `${event.distanceKm.substring(0, 2)} km`
                       : event.distanceKm}
-                </span>
-              </div>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
